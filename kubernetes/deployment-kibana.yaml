@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana
+  namespace: elasticsearch
+  labels:
+    app: kibana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kibana
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      containers:
+        - name: kibana
+          image: gagara/kibana-oss-arm64:latest
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 500Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          env:
+            - name: ELASTICSEARCH_URL
+              value: http://elasticsearch:9200
+          ports:
+            - containerPort: 5601
