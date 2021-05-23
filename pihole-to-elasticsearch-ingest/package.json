@@ -1,0 +1,15 @@
+{
+  "name": "pihole-to-elasticsearch-ingest",
+  "version": "0.1.0",
+  "description": "Pi-hole to Elasticsearch Ingest",
+  "main": "index.js",
+  "repository": "https://github.com/aboyce/elasticsearch-pihole",
+  "author": "aboyce",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.12.0",
+    "knex": "^0.95.6",
+    "sqlite3": "^5.0.2"
+  }
+}
